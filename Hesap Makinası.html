@@ -1,0 +1,97 @@
+<html>
+<head>
+    <title>Hesap Makinası</title>
+    <style>
+        .container {
+            width: 520px;
+            background-color:black;
+            margin: 120px auto;
+        }
+        table {
+            width: 100%;
+            border-color:black;
+        }
+        td {
+            width: 25%;
+        }
+        button {
+            width: 100%;
+            height: 70px;
+            font-size: 24px;
+            background-color:lightcoral;
+            border: none;
+        }
+        #inputLabel {
+            height: 120px;
+            font-size: 40px;
+            vertical-align: bottom;
+            text-align: right;
+            padding-right: 16px;
+            background-color: #FCE4EC;  
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table border="1" cellspacing="0">
+
+            <tr>
+                <td colspan="4" id="inputLabel">0</td>
+            </tr>
+            <tr>
+                <td colspan="3"><button onclick="pushButton(this);">Clean</button></td>
+                <td><button onclick="pushBtn(this);">/</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="pushButton(this);">1</button></td>
+                <td><button onclick="pushButton(this);">2</button></td>
+                <td><button onclick="pushButton(this);">3</button></td>
+                <td><button onclick="pushButton(this);">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="pushButton(this);">4</button></td>
+                <td><button onclick="pushButton(this);">5</button></td>
+                <td><button onclick="pushButton(this);">6</button></td>
+                <td><button onclick="pushButton(this);">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="pushButton(this);">7</button></td>
+                <td><button onclick="pushButtn(this);">8</button></td>
+                <td><button onclick="pushButton(this);">9</button></td>
+                <td><button onclick="pushButton(this);">+</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="pushButton(this);">0</button></td>
+                <td><button onclick="pushButton(this);">=</button></td>
+                <td><button onclick="pushButton(this);">.</button></td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        var inputLabel = document.getElementById('inputLabel');
+        function pushButton(obj)
+        {
+        var pushed = obj.innerHTML;     
+            if (pushed == '=')
+            {
+                 inputLabel.innerHTML = eval(inputLabel.innerHTML); 
+            }
+            else if (pushed == 'Clean')
+            {
+                 inputLabel.innerHTML = '0'; 
+            }
+            else
+            {
+            if (inputLabel.innerHTML == '0')
+            {  
+                 inputLabel.innerHTML = pushed; 
+            }
+            else
+            {
+                 inputLabel.innerHTML += pushed;
+            }
+        }
+    }
+    </script>
+</body>
+</html>
